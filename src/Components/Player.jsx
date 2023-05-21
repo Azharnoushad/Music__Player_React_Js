@@ -7,14 +7,8 @@ import {
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Player = ({ currentSong, setIsPlaying, isPlaying }) => {
-  // useState function for time ------------------------------------------
-  const [songInfo, setSongInfo] = useState({
-    currentTime: 0,
-    durations: 0,
-  });
-  // audio input ref------------------------------------------------------
-  const audioRef = useRef();
+const Player = ({ currentSong, setIsPlaying, isPlaying,audioRef,songInfo,setSongInfo }) => {
+  
 
   //  play song handler function ......................................
   const playSongHandler = () => {
@@ -27,16 +21,7 @@ const Player = ({ currentSong, setIsPlaying, isPlaying }) => {
     }
   };
 
-  // time update handler function------------------------------------------
-
-  const timeUpdateHandler = (event) => {
-    let currentSongTime = event.target.currentTime;
-    let songDuration = event.target.duration;
-    setSongInfo({
-      currentTime: currentSongTime,
-      duration: songDuration,
-    });
-  };
+ 
 
   // time formatting function-------------------------------------------------
   const formatSecondsAsTime = (secs) => {
@@ -83,12 +68,7 @@ const Player = ({ currentSong, setIsPlaying, isPlaying }) => {
           icon={faAngleRight}
         />
       </div>
-      <audio
-        src={currentSong.audio}
-        ref={audioRef}
-        onLoadedMetadata={timeUpdateHandler}
-        onTimeUpdate={timeUpdateHandler}
-      ></audio>
+     
     </div>
   );
 };
