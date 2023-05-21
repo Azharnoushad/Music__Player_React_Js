@@ -1,4 +1,5 @@
 import React from "react";
+import { playAudio } from "../Util/Util";
 
 const LibrarySongList = ({
   song,
@@ -24,11 +25,7 @@ const LibrarySongList = ({
     });
     setSongs(newSongActive);
     setCurrentSong(newCurrentSong);
-    if (isPlaying) {
-      setTimeout(() => {
-        audioRef.current.play();
-      }, 100);
-    }
+    playAudio(isPlaying, audioRef);
   };
 
   return (
