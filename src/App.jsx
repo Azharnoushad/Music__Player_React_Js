@@ -3,6 +3,7 @@ import "./Styles/App.scss";
 import Song from "./Components/Song";
 import Player from "./Components/Player";
 import { data } from "./Util/Util";
+import Library from "./Components/Library";
 
 const App = () => {
   // UseState Hooks Function-----------------------------------------------------------------
@@ -18,6 +19,7 @@ const App = () => {
         setIsPlaying={setIsPlaying}
         isPlaying={isPlaying}
       />
+      <Library songs={songs} />
     </div>
   );
 };
