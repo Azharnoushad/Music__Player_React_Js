@@ -6,6 +6,9 @@
   height: 100%;
   box-shadow: 2px 2px 50px rgb(173, 167, 167);
   overflow-y: scroll;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: 0.5s ease;
   h2{
     padding: 2rem;
   }
@@ -57,4 +60,8 @@
 
 .current-song{
   background-color: rgb(170, 186, 231);
+}
+.open-library{
+  opacity: 1;
+  transform: translateX(0%);
 }

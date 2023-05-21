@@ -4,9 +4,11 @@ import Song from "./Components/Song";
 import Player from "./Components/Player";
 import { data } from "./Util/Util";
 import Library from "./Components/Library";
+import Nav from "./Components/Nav";
 
 const App = () => {
   // UseState Hooks Function-----------------------------------------------------------------
+  const [libraryStatus,setLibraryStatus] =useState(false)
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -31,6 +33,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus}/>
       <Song currentSong={currentSong} />
       <Player
         currentSong={currentSong}
@@ -46,13 +49,13 @@ const App = () => {
         audioRef={audioRef}
         isPlaying={isPlaying}
         setSongs={setSongs}
+        libraryStatus={libraryStatus}
       />
       <audio
         src={currentSong.audio}
         ref={audioRef}
         onLoadedMetadata={timeUpdateHandler}
         onTimeUpdate={timeUpdateHandler}
-        
       ></audio>
     </div>
   );
